@@ -81,9 +81,13 @@ abstract class Mitarbeiter {
 	public static void ausgabe(Mitarbeiter dieserMitarbeiter) {
 		if (dieserMitarbeiter instanceof Arbeiter) {
 			System.out.println(dieserMitarbeiter.ausgabe());
+			System.out.print("Netto: ");
+			System.out.printf("%.2f%n", Verwaltung.berechneNettoGehalt(dieserMitarbeiter));
 		}
 		if (dieserMitarbeiter instanceof Angestellter) {
 			System.out.println(dieserMitarbeiter.ausgabe());
+			System.out.print("Netto: ");
+			System.out.printf("%.2f%n", Verwaltung.berechneNettoGehalt(dieserMitarbeiter));
 		}
 	}
 

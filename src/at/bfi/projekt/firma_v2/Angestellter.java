@@ -80,7 +80,7 @@ class Angestellter extends Mitarbeiter {
 	public String ausgabe() {
 		return "\nAngestellter\n============\nId: " + getId() + "\nName: " + getName() + "\nGrundgehalt: "
 				+ String.format("%.2f", grundgehalt) + "\nZulage: " + String.format("%.2f", zulage) + "\nOrtszuschlag: "
-				+ String.format("%.2f", ortszuschlag) + "\nBrutto: " + String.format("%.2f", berechneBrutto()) + "\n";
+				+ String.format("%.2f", ortszuschlag) + "\nBrutto: " + String.format("%.2f", berechneBrutto());
 	}
 
 }

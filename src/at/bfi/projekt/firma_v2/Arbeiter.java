@@ -100,7 +100,7 @@ class Arbeiter extends Mitarbeiter {
 		return "\nArbeiter\n========\nId: " + getId() + "\nName: " + getName() + "\nStundenlohn: "
 				+ String.format("%.2f", stundenlohn) + "\nAnzahl der Stunden: " + anz_stunden + "\nSchichtzulage: "
 				+ String.format("%.2f", ortszuschlag) + "\nSchichtzulage: " + String.format("%.2f", schicht_Zulage)
-				+ "\nBrutto: " + berechneBrutto() + "\n";
+				+ "\nBrutto: " + berechneBrutto();
 	}
 
 }
