@@ -82,4 +82,77 @@ class MitarbeiterTest {
 		assertEquals(4, anzahlAngestellte);
 
 	}
+
+	@Test
+	void testBerechneNettoArbeiter() {
+
+		double TAX_ARB = 0.15;
+
+		Arbeiter arbeiter_0 = new Arbeiter(1, "Klemens", 10, 10, 10, 10);
+		Arbeiter arbeiter_1 = new Arbeiter(2, "Karoline", 20, 20, 20, 20);
+
+		double nettoArbeiter_0 = Verwaltung.berechneNettoGehalt(arbeiter_0);
+		double nettoArbeiter_1 = Verwaltung.berechneNettoGehalt(arbeiter_1);
+
+		double bruttoTemp = arbeiter_0.berechneBrutto() + arbeiter_1.berechneBrutto();
+		double expectedNetto = bruttoTemp - (bruttoTemp * TAX_ARB);
+
+		assertEquals(expectedNetto, (nettoArbeiter_0 + nettoArbeiter_1));
+
+	}
+
+	@Test
+	void testBerechneNettoAngestellter() {
+
+		double TAX_ANG = 0.20;
+
+		Angestellter angestellter_1 = new Angestellter(1, "Warinot", 100.0, 10.00, 1.0);
+//		Angestellter angestellter_2 = new Angestellter(2, "Kuno", 200.0, 20.0, 2.0);
+//		Angestellter angestellter_3 = new Angestellter(3, "Audo", 300.0, 30.0, 3.0);
+
+		double actualNetto = Verwaltung.berechneNettoGehalt(angestellter_1);
+		double expectedNetto = angestellter_1.berechneBrutto() - (angestellter_1.berechneBrutto() * TAX_ANG);
+
+		assertEquals(expectedNetto, actualNetto);
+
+	}
+
+	@Test
+	void testBerechneGesamtSummeGehaelter() {
+
+		// Leeres Array fuer die Mitarbeiterliste
+		Mitarbeiter[] mitarbeiter_liste_gehaelter = new Mitarbeiter[7];
+
+		// Erstellung der Arbeiterobjekte
+		Arbeiter arbeiter_0 = new Arbeiter(1, "Klemens", 10.0, 10, 10.0, 10.0);
+		Arbeiter arbeiter_1 = new Arbeiter(2, "Karoline", 20.0, 20, 20.0, 20.0);
+		Arbeiter arbeiter_2 = new Arbeiter(3, "Lutz", 30.0, 30, 30.0, 30.0);
+		Arbeiter arbeiter_3 = new Arbeiter(4, "Aldric", 40.0, 40, 40.0, 40.0);
+
+		// Erstellung der Angestelltenobjekte
+		Angestellter angestellter_4 = new Angestellter(5, "Warinot", 100.0, 10.00, 1.0);
+		Angestellter angestellter_5 = new Angestellter(6, "Kuno", 200.0, 20.0, 2.0);
+		Angestellter angestellter_6 = new Angestellter(7, "Audo", 300.0, 30.0, 3.0);
+
+		// Zuweisung der Objekte zum Array mit der Liste der Mitarbeiter
+		mitarbeiter_liste_gehaelter[0] = arbeiter_0;
+		mitarbeiter_liste_gehaelter[1] = arbeiter_1;
+		mitarbeiter_liste_gehaelter[2] = arbeiter_2;
+		mitarbeiter_liste_gehaelter[3] = arbeiter_3;
+
+		mitarbeiter_liste_gehaelter[4] = angestellter_4;
+		mitarbeiter_liste_gehaelter[5] = angestellter_5;
+		mitarbeiter_liste_gehaelter[6] = angestellter_6;
+
+		Verwaltung.berechneSummeAlleGehaelter(mitarbeiter_liste_gehaelter);
+
+		double erwartetesErgebnisArbeiterAnteil = ((10.0 * 10) + 10.0 + 10.0) + ((20.0 * 20) + 20.0 + 20.0)
+				+ ((30.0 * 30) + 30.0 + 30.0) + ((40.0 * 40) + 40.0 + 40.0);
+		double erwartetesErgebnisAngestelltenAnteil = (100.0 + 10.00 + 1.0) + (200.0 + 20.0 + 2.0)
+				+ (300.0 + 30.0 + 3.0);
+		double erwartetesGesamtErgebnis = erwartetesErgebnisArbeiterAnteil + erwartetesErgebnisAngestelltenAnteil;
+
+		assertEquals(erwartetesGesamtErgebnis, Verwaltung.summeAllerGehaelter);
+
+	}
 }

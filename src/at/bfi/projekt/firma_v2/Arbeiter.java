@@ -31,7 +31,7 @@ class Arbeiter extends Mitarbeiter {
 		this.stundenlohn = stundenlohn;
 		this.anz_stunden = anz_stunden;
 		this.schicht_Zulage = schicht_Zulage;
-		this.schicht_Zulage = ortszuschlag;
+		this.ortszuschlag = ortszuschlag;
 	}
 
 	public double berechneBrutto() {

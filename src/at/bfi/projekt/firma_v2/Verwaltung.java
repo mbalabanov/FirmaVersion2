@@ -85,7 +85,14 @@ class Verwaltung {
 
 	public static double berechneNettoGehalt(Mitarbeiter dieserMitarbeiter) {
 		double bruttoBetrag = dieserMitarbeiter.berechneBrutto();
-		double steuerBetrag = bruttoBetrag * TAX_ARB;
+		double steuerBetrag = 0;
+
+		if (dieserMitarbeiter instanceof Arbeiter) {
+			steuerBetrag = bruttoBetrag * TAX_ARB;
+		}
+		if (dieserMitarbeiter instanceof Angestellter) {
+			steuerBetrag = bruttoBetrag * TAX_ANG;
+		}
 
 		return bruttoBetrag - steuerBetrag;
 	};
