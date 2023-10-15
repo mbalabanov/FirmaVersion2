@@ -68,10 +68,10 @@ class Verwaltung {
 		berechneSummeAlleGehaelter(mitarbeiter_liste);
 		System.out.println("\nSumme aller Gehaelter: " + summeAllerGehaelter);
 
-		System.out.print("\nNettogehalt eines Arbeiters: ");
+		System.out.print("\nNettogehalt des Arbeiters mit der ID " + mitarbeiter_liste[3].getId() + ": ");
 		System.out.printf("%.2f%n", berechneNettoGehalt(mitarbeiter_liste[3]));
 
-		System.out.print("\nNettogehalt eines Angestellten: ");
+		System.out.print("\nNettogehalt des Angestellten mit der ID " + mitarbeiter_liste[11].getId() + ": ");
 		System.out.printf("%.2f%n", berechneNettoGehalt(mitarbeiter_liste[11]));
 
 	}
