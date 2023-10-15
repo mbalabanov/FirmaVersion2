@@ -61,7 +61,7 @@ class Arbeiter extends Mitarbeiter {
 	}
 
 	/**
-	 * @param anz_stunden
+	 * @param ortszuschlag
 	 */
 	public void setOrtszuschlag(int ortszuschlag) {
 		this.ortszuschlag = ortszuschlag;

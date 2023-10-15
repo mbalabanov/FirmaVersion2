@@ -76,6 +76,9 @@ class Verwaltung {
 
 	}
 
+	/**
+	 * @param mitarbeiter_liste
+	 */
 	public static void berechneSummeAlleGehaelter(Mitarbeiter[] mitarbeiter_liste) {
 		summeAllerGehaelter = 0.0;
 		for (Mitarbeiter dieserMitarbeiter : mitarbeiter_liste) {
